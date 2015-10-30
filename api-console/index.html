@@ -5,13 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>API Console</title>
   <link href="styles/api-console-light-theme.css" rel="stylesheet" class="theme">
+  <link href="styles/overrides.css" rel="stylesheet" class="theme">
 </head>
 <body ng-app="ramlConsoleApp" ng-cloak class="raml-console-body">
   <raml-initializer></raml-initializer>
   <script src="scripts/api-console-vendor.js"></script>
   <script src="scripts/api-console.js"></script>
   <script>
-    $.noConflict();
+      window.addEventListener("message", function(event){
+          document.querySelector('.CodeMirror').CodeMirror.setValue(event.data);
+          document.querySelector('#loadRaml').click();
+      }, false);
+
+      window.addEventListener("DOMContentLoaded", function(){
+          parent.postMessage("RAMLReady", "*");
+      });
   </script>
 </body>
 </html>
