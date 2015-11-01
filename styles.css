@@ -18,3 +18,7 @@
     height: 100%;
     border: none;
 }
+
+#indicator-dnbard-raml{
+    cursor: pointer;
+}

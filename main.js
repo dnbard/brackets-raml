@@ -3,17 +3,16 @@ define(function(require, exports, module){
         MainViewManager = brackets.getModule('view/MainViewManager'),
         Dialogs = brackets.getModule('widgets/Dialogs'),
         ExtensionUtils = brackets.getModule('utils/ExtensionUtils'),
-        isVisible = true,
         indicatorId = 'indicator-dnbard-raml',
         dialogId = 'dialog-dnbard-raml',
         modulePath = ExtensionUtils.getModulePath(module),
-        indicatorDOM = $('<div>RAML</div>'),
+        indicatorDOM = $('<div id="' + indicatorId + '">View RAML</div>'),
         ramlRegex = /\.raml$/i,
         currentFile = null;
 
     ExtensionUtils.loadStyleSheet(module, 'styles.css');
 
-    StatusBar.addIndicator(indicatorId, indicatorDOM, isVisible);
+    StatusBar.addIndicator(indicatorId, indicatorDOM, true);
 
     indicatorDOM.click(function(){
         if (currentFile === null){
