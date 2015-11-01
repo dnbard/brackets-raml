@@ -834,11 +834,9 @@
         };
 
         $scope.loadRaml = function() {
-          if ($scope.raml) {
-            $scope.ramlStatus      = 'loading';
-            $scope.isLoadedFromUrl = false;
-            ramlParserWrapper.parse($scope.raml);
-          }
+          $scope.ramlStatus      = 'loading';
+          $scope.isLoadedFromUrl = false;
+          ramlParserWrapper.parse(document.querySelector('#externalRaml').textContent);
         };
 
         if (document.location.search.indexOf('?raml=') !== -1) {

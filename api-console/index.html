@@ -13,7 +13,12 @@
   <script src="scripts/api-console.js"></script>
   <script>
       window.addEventListener("message", function(event){
-          document.querySelector('.CodeMirror').CodeMirror.setValue(event.data);
+          var externalRaml = document.createElement('div');
+          externalRaml.id = 'externalRaml';
+          externalRaml.style.display = "none";
+          externalRaml.textContent = event.data;
+
+          document.querySelector('body').appendChild(externalRaml);
           document.querySelector('#loadRaml').click();
       }, false);
 
