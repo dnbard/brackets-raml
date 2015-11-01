@@ -1,6 +1,6 @@
 {
     "name": "dnbard.raml",
-    "title": "RAML",
+    "title": "RAML API Console",
     "description": "",
     "homepage": "https://github.com/dnbard/brackets-raml",
     "version": "0.1.0",
@@ -9,5 +9,5 @@
     "engines": {
         "brackets": ">=1.2.0"
     },
-    "keywords": ["raml", "rest", "request", "http", "ajax"]
+    "keywords": ["raml", "rest", "request", "http", "ajax", "mulesoft"]
 }
