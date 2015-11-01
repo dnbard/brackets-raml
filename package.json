@@ -1,9 +1,9 @@
 {
     "name": "dnbard.raml",
     "title": "RAML API Console",
-    "description": "",
+    "description": "API Console is a graphical user interface for a RAML-defined API that visually exposes the API’s structure and important patterns and serves as interactive API documentation.",
     "homepage": "https://github.com/dnbard/brackets-raml",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "author": "Alex Bardanov",
     "license": "MIT",
     "engines": {
