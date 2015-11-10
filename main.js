@@ -3,6 +3,7 @@ define(function(require, exports, module){
         MainViewManager = brackets.getModule('view/MainViewManager'),
         Dialogs = brackets.getModule('widgets/Dialogs'),
         ExtensionUtils = brackets.getModule('utils/ExtensionUtils'),
+        ThemeManager = brackets.getModule('view/ThemeManager'),
         indicatorId = 'indicator-dnbard-raml',
         dialogId = 'dialog-dnbard-raml',
         modulePath = ExtensionUtils.getModulePath(module),
@@ -19,7 +20,11 @@ define(function(require, exports, module){
             return console.error('File entity are null');
         }
 
-        Dialogs.showModalDialog(dialogId, 'RAML', '<iframe src="' + modulePath + 'api-console/index.html"></iframe>', "", [], true);
+        if (ThemeManager.getCurrentTheme().dark){
+            Dialogs.showModalDialog(dialogId, 'RAML', '<iframe src="' + modulePath + 'api-console/index-dark.html"></iframe>', "", [], true);
+        } else {
+            Dialogs.showModalDialog(dialogId, 'RAML', '<iframe src="' + modulePath + 'api-console/index.html"></iframe>', "", [], true);
+        }
 
         window.addEventListener("message", function(event){
             if (event.data === "RAMLReady"){

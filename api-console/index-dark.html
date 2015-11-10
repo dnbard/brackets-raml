@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>API Console</title>
+  <link href="styles/api-console-dark-theme.css" rel="stylesheet" class="theme">
+  <link href="styles/overrides.css" rel="stylesheet" class="theme">
+</head>
+<body ng-app="ramlConsoleApp" ng-cloak class="raml-console-body">
+  <raml-initializer></raml-initializer>
+  <script src="scripts/api-console-vendor.js"></script>
+  <script src="scripts/api-console.js"></script>
+  <script>
+      window.addEventListener("message", function(event){
+          var externalRaml = document.createElement('div');
+          externalRaml.id = 'externalRaml';
+          externalRaml.style.display = "none";
+          externalRaml.textContent = event.data;
+
+          document.querySelector('body').appendChild(externalRaml);
+          document.querySelector('#loadRaml').click();
+      }, false);
+
+      window.addEventListener("DOMContentLoaded", function(){
+          parent.postMessage("RAMLReady", "*");
+      });
+  </script>
+</body>
+</html>
